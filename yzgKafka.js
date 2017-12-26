@@ -1,3 +1,4 @@
+'use strict'
 let kafka = require('kafka-node');
 let events = require('events');
 let debug = false;
