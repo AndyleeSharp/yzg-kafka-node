@@ -1,6 +1,6 @@
 {
   "name": "yzg-kafka-node",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "keep kafka-node continue working after service recovery",
   "main": "yzgKafka.js",
   "scripts": {
