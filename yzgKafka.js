@@ -1,6 +1,6 @@
 let kafka = require('kafka-node');
 let events = require('events');
-let debug = true;
+let debug = false;
 let HighLevelProducer = kafka.HighLevelProducer;
 let HighLevelConsumer = kafka.HighLevelConsumer;
 const timeToRetryConnection = 1000;
@@ -189,25 +189,3 @@ module.exports.YZGKafkaProducer = YZGKafkaProducer;
 module.exports.enableDebug = enableDebug;
 module.exports.disenableDebug = disenableDebug;
 
-disenableDebug();
-
-let k = new YZGKafkaConsumer('kn-kafka:2181', {
-	topics: ['test'],
-	autoCommit:false	
-});
-
-k.on('message', function(message) {
-	console.log(message);
-	k.consumerComit(true);
-})
-
-
-let p = new YZGKafkaProducer('kn-kafka:2181')
-setInterval(function() {
-	p.send('test',(new Date()).toLocaleString());
-}, 1000)
-
-process.on('uncaughtException', function(err) {
-	console.log(' Caught exception: ' + err.stack);
-
-});
