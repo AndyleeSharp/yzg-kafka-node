@@ -36,15 +36,15 @@ class YZGKafka extends events.EventEmitter {
 		this.client.on('error', err => {
 			debug && console.log('=====client err======');
 			debug && console.log(err);
-			this._close();
-			this._beginRetryConnect();
+			// this._close();
+			// this._beginRetryConnect();
 			
 		});
 
 		this.client.on('close', () => {
 			debug && console.log('=====client close======');			
 
-			this._beginRetryConnect();
+			// this._beginRetryConnect();
 
 		})
 	}	
@@ -88,8 +88,8 @@ class YZGKafkaProducer extends YZGKafka {
 		this.producer.on('error', err => {
 			debug && console.log('=====producer err======');
 			debug && console.log(err);
-			this._close();
-			this._beginRetryConnect();
+			// this._close();
+			// this._beginRetryConnect();
 
 		});
 
@@ -159,8 +159,8 @@ class YZGKafkaConsumer extends YZGKafka {
 			debug && console.log('====consumer err======', this.consumer.id);
 			debug && console.log(err);
 
-			this._close();
-			this._beginRetryConnect();
+			// this._close();
+			// this._beginRetryConnect();
 
 		})
 
